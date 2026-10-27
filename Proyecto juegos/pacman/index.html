@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man Arcade Original - 100% Exacto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="arcade-cabinet">
+        <header id="hud">
+            <div class="score-board">
+                <span class="label">1UP</span>
+                <span id="score">00000</span>
+            </div>
+            <div class="score-board">
+                <span class="label">HIGH SCORE</span>
+                <span id="high-score">10000</span>
+            </div>
+        </header>
+
+        <div id="canvas-container">
+            <canvas id="pacman-canvas" width="448" height="496"></canvas>
+            <div id="message-overlay" class="overlay">
+                <h1>PAC-MAN</h1>
+                <p>PRESS SPACEBAR TO START</p>
+                <p class="controls-hint">USE ARROW KEYS OR WASD</p>
+            </div>
+        </div>
+
+        <footer id="footer-hud">
+            <div id="lives-container"></div>
+            <div id="fruits-container">
+                <div class="cherry-fruit"></div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

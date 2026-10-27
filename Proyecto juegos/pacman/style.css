@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Press Start 2P', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    user-select: none;
+}
+
+#arcade-cabinet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000000;
+    padding: 10px;
+}
+
+#hud {
+    display: flex;
+    justify-content: space-between;
+    width: 448px;
+    margin-bottom: 8px;
+}
+
+.score-board {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.score-board:last-child {
+    align-items: flex-end;
+}
+
+.score-board .label {
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+#score, #high-score {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+#canvas-container {
+    position: relative;
+    width: 448px;
+    height: 496px;
+}
+
+canvas {
+    display: block;
+    background-color: #000000;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+}
+
+.overlay h1 {
+    color: #ffff00;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.overlay p {
+    color: #00ffff;
+    font-size: 11px;
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+.overlay .controls-hint {
+    color: #ffb8ff;
+    font-size: 9px;
+}
+
+#footer-hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 448px;
+    margin-top: 10px;
+    height: 24px;
+}
+
+#lives-container {
+    display: flex;
+    gap: 10px;
+}
+
+.life-icon {
+    width: 16px;
+    height: 16px;
+    background-color: #ffff00;
+    border-radius: 50%;
+    clip-path: polygon(100% 0, 100% 100%, 0 50%);
+    transform: rotate(180deg);
+}
+
+#fruits-container {
+    display: flex;
+    gap: 8px;
+}
+
+.cherry-fruit {
+    width: 14px;
+    height: 14px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    box-shadow: -4px 4px 0 #ff0000;
+    position: relative;
+}
+
+.cherry-fruit::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 2px;
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid #00ff00;
+    border-top: 2px solid #00ff00;
+}
