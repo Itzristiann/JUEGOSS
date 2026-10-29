@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Chrome T-Rex Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <canvas id="gameCanvas" width="600" height="150" aria-label="Juego del dinosaurio de Chrome"></canvas>
+    </div>
+
+    <!-- Control inferior -->
+    <div class="footer-controls">
+        <label class="slow-mode-label">
+            <span>Empezar más despacio</span>
+            <input type="checkbox" id="slowModeToggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <!-- El sprite (chrome-dino-sprite.png) debe estar junto a este archivo o en una carpeta "images/" -->
+    <script src="script.js"></script>
+</body>
+</html>
