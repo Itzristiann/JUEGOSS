@@ -112,8 +112,7 @@
     <div class="menu-container">
         <button class="btn-juego pacman" onclick="cargarJuego('pacman/index.html')">🕹️ Jugar Pacman</button>
         <button class="btn-juego dino" onclick="cargarJuego('dino/index.html')">🦖 Jugar Dinosaurio</button>
-        <!-- Se apunta directamente al archivo Tetris 100.html -->
-        <button class="btn-juego tetris" onclick="cargarJuego('Tetris 100.html')">🧱 Jugar Tetris</button>
+        <button class="btn-juego tetris" onclick="cargarJuego('tetris.html')">🧱 Jugar Tetris</button>
     </div>
 
     <div class="game-viewport">
@@ -128,9 +127,7 @@
             iframe.onload = function() {
                 try {
                     iframe.contentWindow.focus();
-                } catch (e) {
-                    // Evita errores de consola
-                }
+                } catch (e) {}
             };
         }
     </script>
