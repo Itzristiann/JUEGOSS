@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arcade: Pacman vs Dino</title>
+    <title>Arcade Retro: Pacman, Dino y Tetris</title>
     <style>
         * {
             box-sizing: border-box;
@@ -22,7 +22,7 @@
         }
 
         header {
-            margin: 30px 0 10px;
+            margin: 25px 0 10px;
             text-align: center;
         }
 
@@ -39,7 +39,7 @@
 
         .menu-container {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             margin: 20px 0;
             flex-wrap: wrap;
             justify-content: center;
@@ -49,9 +49,9 @@
             background-color: #1e1e1e;
             border: 2px solid #333;
             border-radius: 12px;
-            padding: 15px 30px;
+            padding: 12px 25px;
             color: #fff;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -59,18 +59,25 @@
 
         .btn-juego:hover {
             transform: translateY(-3px);
-            border-color: #f1c40f;
-            box-shadow: 0 5px 15px rgba(241, 196, 15, 0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
         .btn-juego.pacman:hover {
             border-color: #f1c40f;
             color: #f1c40f;
+            box-shadow: 0 5px 15px rgba(241, 196, 15, 0.3);
         }
 
         .btn-juego.dino:hover {
             border-color: #2ecc71;
             color: #2ecc71;
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+        }
+
+        .btn-juego.tetris:hover {
+            border-color: #e74c3c;
+            color: #e74c3c;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
         }
 
         .game-viewport {
@@ -93,12 +100,6 @@
             height: 100%;
             border: none;
         }
-
-        .placeholder {
-            color: #666;
-            font-size: 1.2rem;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
@@ -109,20 +110,13 @@
     </header>
 
     <div class="menu-container">
-       <button class="btn-juego pacman"
-  onclick="cargarJuego('Proyecto%20juegos/pacman/index.html')">
-  🕹️ Jugar Pacman
-</button>
-    <button class="btn-juego dino"
-  onclick="cargarJuego('Proyecto%20juegos/dino/index.html')">
-  🦖 Jugar Dinosaurio
-</button>
+        <button class="btn-juego pacman" onclick="cargarJuego('pacman/index.html')">🕹️ Jugar Pacman</button>
+        <button class="btn-juego dino" onclick="cargarJuego('dino/index.html')">🦖 Jugar Dinosaurio</button>
+        <button class="btn-juego tetris" onclick="cargarJuego('tetris 100/index.html')">🧱 Jugar Tetris</button>
     </div>
 
     <div class="game-viewport">
-      <iframe id="pantalla-juego"
-  src="Proyecto%20juegos/pacman/index.html">
-</iframe>
+        <iframe id="pantalla-juego" src="pacman/index.html"></iframe>
     </div>
 
     <script>
@@ -130,9 +124,13 @@
             const iframe = document.getElementById('pantalla-juego');
             iframe.src = ruta;
             
-            // Le da el foco al iframe para que detecte las teclas de flechas/espacio de inmediato
+            // Le da el foco al iframe para que detecte las teclas del juego de inmediato
             iframe.onload = function() {
-                iframe.contentWindow.focus();
+                try {
+                    iframe.contentWindow.focus();
+                } catch (e) {
+                    // Evita errores de consola si hay restricciones de seguridad externas
+                }
             };
         }
     </script>
