@@ -112,7 +112,8 @@
     <div class="menu-container">
         <button class="btn-juego pacman" onclick="cargarJuego('pacman/index.html')">🕹️ Jugar Pacman</button>
         <button class="btn-juego dino" onclick="cargarJuego('dino/index.html')">🦖 Jugar Dinosaurio</button>
-        <button class="btn-juego tetris" onclick="cargarJuego('tetris 100/index.html')">🧱 Jugar Tetris</button>
+        <!-- Se apunta directamente al archivo Tetris 100.html -->
+        <button class="btn-juego tetris" onclick="cargarJuego('Tetris 100.html')">🧱 Jugar Tetris</button>
     </div>
 
     <div class="game-viewport">
@@ -124,12 +125,11 @@
             const iframe = document.getElementById('pantalla-juego');
             iframe.src = ruta;
             
-            // Le da el foco al iframe para que detecte las teclas del juego de inmediato
             iframe.onload = function() {
                 try {
                     iframe.contentWindow.focus();
                 } catch (e) {
-                    // Evita errores de consola si hay restricciones de seguridad externas
+                    // Evita errores de consola
                 }
             };
         }
