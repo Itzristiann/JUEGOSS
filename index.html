@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arcade Retro: Pacman, Dino y Tetris</title>
+
     <style>
         * {
             box-sizing: border-box;
@@ -19,6 +21,7 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            padding: 20px;
         }
 
         header {
@@ -34,13 +37,13 @@
 
         p {
             color: #aaa;
-            margin-top: 5px;
+            margin-top: 8px;
         }
 
         .menu-container {
             display: flex;
             gap: 15px;
-            margin: 20px 0;
+            margin: 25px 0;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -49,11 +52,12 @@
             background-color: #1e1e1e;
             border: 2px solid #333;
             border-radius: 12px;
-            padding: 12px 25px;
+            padding: 15px 25px;
             color: #fff;
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
+            text-decoration: none;
             transition: all 0.3s ease;
         }
 
@@ -65,43 +69,63 @@
         .btn-juego.pacman:hover {
             border-color: #f1c40f;
             color: #f1c40f;
-            box-shadow: 0 5px 15px rgba(241, 196, 15, 0.3);
+            box-shadow: 0 5px 15px rgba(241,196,15,0.3);
         }
 
         .btn-juego.dino:hover {
             border-color: #2ecc71;
             color: #2ecc71;
-            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+            box-shadow: 0 5px 15px rgba(46,204,113,0.3);
         }
 
         .btn-juego.tetris:hover {
             border-color: #e74c3c;
             color: #e74c3c;
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+            box-shadow: 0 5px 15px rgba(231,76,60,0.3);
         }
 
         .game-viewport {
             width: 100%;
-            max-width: 900px;
-            height: 600px;
+            max-width: 1100px;
+            height: 650px;
             background-color: #000;
             border: 3px solid #333;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.7);
             margin-bottom: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         iframe {
             width: 100%;
             height: 100%;
             border: none;
+            background: white;
+        }
+
+        footer {
+            color: #666;
+            margin-top: auto;
+            padding: 20px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .game-viewport {
+                height: 500px;
+            }
+
+            .btn-juego {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -110,26 +134,62 @@
     </header>
 
     <div class="menu-container">
-        <button class="btn-juego pacman" onclick="cargarJuego('pacman/index.html')">🕹️ Jugar Pacman</button>
-        <button class="btn-juego dino" onclick="cargarJuego('dino/index.html')">🦖 Jugar Dinosaurio</button>
-        <button class="btn-juego tetris" onclick="cargarJuego('tetris 100/index.html')">🧱 Jugar Tetris</button>
+
+        <a class="btn-juego pacman"
+           href="#"
+           onclick="cargarJuego('pacman'); return false;">
+            🕹️ Jugar Pacman
+        </a>
+
+        <a class="btn-juego dino"
+           href="#"
+           onclick="cargarJuego('dino'); return false;">
+            🦖 Jugar Dinosaurio
+        </a>
+
+        <a class="btn-juego tetris"
+           href="#"
+           onclick="cargarJuego('tetris'); return false;">
+            🧱 Jugar Tetris
+        </a>
+
     </div>
 
     <div class="game-viewport">
-        <iframe id="pantalla-juego" src="pacman/index.html"></iframe>
+        <iframe
+            id="pantalla-juego"
+            src="./Proyecto%20juegos/pacman/index.html"
+            title="Pantalla de juegos"
+            allow="fullscreen">
+        </iframe>
     </div>
 
+    <footer>
+        Arcade Retro © 2026
+    </footer>
+
     <script>
-        function cargarJuego(ruta) {
-            const iframe = document.getElementById('pantalla-juego');
-            iframe.src = ruta;
-            
-            iframe.onload = function() {
-                try {
-                    iframe.contentWindow.focus();
-                } catch (e) {}
-            };
+
+        const juegos = {
+            pacman: "./Proyecto%20juegos/pacman/index.html",
+            dino: "./Proyecto%20juegos/dino/index.html",
+            tetris: "./Proyecto%20juegos/tetris%20100/index.html"
+        };
+
+        function cargarJuego(nombre) {
+
+            const iframe = document.getElementById("pantalla-juego");
+
+            if (!juegos[nombre]) {
+                alert("Juego no encontrado");
+                return;
+            }
+
+            iframe.src = juegos[nombre];
+
         }
+
     </script>
+
 </body>
 </html>
